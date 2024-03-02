@@ -112,5 +112,7 @@ The server is also deployed on the mainnet at:
 https://t2dv7-caaaa-aaaak-afopa-cai.raw.icp0.io
 ```
 
+However, the "/web2/accounts" and "/web2/transactions" routes that work in localhost don't work in mainnet due to ICP's technical limitations.
+
 An issue have been open by an Azle mentor:
 https://forum.dfinity.org/t/tcp-connect-error-network-is-unreachable/28041
