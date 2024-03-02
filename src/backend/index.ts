@@ -25,7 +25,7 @@ export default Server(() => {
             body: serialize({
                 args: [
                     {
-                        url: `https://oxeniotna-sandbox.biapi.pro/2.0/users/me/accounts`,
+                        url: `https://ethdenver-sandbox.biapi.pro/2.0/users/me/accounts`,
                         max_response_bytes: [],
                         method: {
                             get: null
@@ -52,7 +52,7 @@ export default Server(() => {
             body: serialize({
                 args: [
                     {
-                        url: `https://oxeniotna-sandbox.biapi.pro/2.0/users/me/transactions?limit=1000`,
+                        url: `https://ethdenver-sandbox.biapi.pro/2.0/users/me/transactions?limit=1000`,
                         max_response_bytes: [],
                         method: {
                             get: null
@@ -126,7 +126,7 @@ export default Server(() => {
         // Not implemented yet: this data needs be performed by an AI for categorization of bank transactions
         let income = 5000
         let creditHistory = 2
-        let jobStability = 3
+        let jobStability = 4
 
         const incomeWeight = 0.4;
         const creditHistoryWeight = 0.3;
