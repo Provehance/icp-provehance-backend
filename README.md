@@ -1,8 +1,8 @@
-# Azle Hello World
+# Provehance on Azle ICP ♾️
 
 -   [Installation](#installation)
 -   [Deployment](#deployment)
--   [Examples](#examples)
+-   [Important](#important)
 
 Azle helps you to build secure decentralized/replicated servers in TypeScript or JavaScript on [ICP](https://internetcomputer.org/). The current replication factor is [13-40 times](https://dashboard.internetcomputer.org/subnets).
 
@@ -69,15 +69,14 @@ echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
 ## Deployment
 
 ```bash
-npx azle new hello_world
-cd hello_world
+cd icp-provehance-backend
 
 npm install
 
 dfx start --clean --host 127.0.0.1:8000
 ```
 
-In a separate terminal in the `hello_world` directory:
+In a separate terminal in the `icp-provehance-backend` directory:
 
 ```bash
 dfx deploy
@@ -106,15 +105,12 @@ curl http://[canisterId].localhost:8000/db
 curl -X POST -H "Content-Type: application/json" -d "{ \"hello\": \"world\" }" http://[canisterId].localhost:8000/db/update
 ```
 
-## Examples
+## Important
 
-There are many Azle examples in the [examples directory](https://github.com/demergent-labs/azle/tree/main/examples). We recommend starting with the following:
+The server is also deployed on the mainnet at:
+```bash
+https://t2dv7-caaaa-aaaak-afopa-cai.raw.icp0.io
+```
 
--   [apollo_server](https://github.com/demergent-labs/azle/tree/main/examples/apollo_server)
--   [ethers](https://github.com/demergent-labs/azle/tree/main/examples/ethers)
--   [express](https://github.com/demergent-labs/azle/tree/main/examples/express)
--   [fs](https://github.com/demergent-labs/azle/tree/main/examples/fs)
--   [hello_world](https://github.com/demergent-labs/azle/tree/main/examples/hello_world)
--   [ic_evm_rpc](https://github.com/demergent-labs/azle/tree/main/examples/ic_evm_rpc)
--   [sqlite](https://github.com/demergent-labs/azle/tree/main/examples/sqlite)
--   [web_assembly](https://github.com/demergent-labs/azle/tree/main/examples/web_assembly)
+An issue have been open by an Azle mentor:
+https://forum.dfinity.org/t/tcp-connect-error-network-is-unreachable/28041
