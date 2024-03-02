@@ -9,6 +9,15 @@ export default Server(() => {
 
     app.use(express.json());
 
+    interface KYCData {
+        address: string;
+        firstname: string;
+        lastname: string;
+        bank_id: string;
+    }
+    
+    let kycData: KYCData[] = [];
+
     async function getAccounts(access_token: string) {
         const authorization = 'Bearer ' + access_token;
 
@@ -115,9 +124,9 @@ export default Server(() => {
         }
 
         // Not implemented yet: this data needs be performed by an AI for categorization of bank transactions
-        let income = 3000
-        let creditHistory = 3
-        let jobStability = 2
+        let income = 5000
+        let creditHistory = 2
+        let jobStability = 3
 
         const incomeWeight = 0.4;
         const creditHistoryWeight = 0.3;
@@ -134,6 +143,33 @@ export default Server(() => {
         const normalizedScore = normalize(score, 0, 10);
 
         res.json(normalizedScore)
+    });
+
+    app.post('/web2/savekyc', async (req, res) => {
+        const { address, firstname, lastname, bank_id } = req.body;
+
+        const newKYC: KYCData = {
+            address,
+            firstname,
+            lastname,
+            bank_id,
+        };
+
+        kycData.push(newKYC);
+
+        res.status(201).json({ message: 'KYC information saved successfully' });
+    });
+
+    app.post('/web2/getkyc', async (req, res) => {
+        const { address } = req.body;
+
+        const kycInfo = kycData.find(entry => entry.address === address);
+
+        if (kycInfo) {
+            res.json(kycInfo);
+        } else {
+            res.status(404).json({ error: 'KYC information not found for the provided address' });
+        }
     });
 
     app.use(express.static('/dist'));
